@@ -1,0 +1,26 @@
+/* App container to structure layout */
+.app-container {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    min-height: 100vh; /* Full viewport height */
+}
+
+/* Content area styling */
+.content {
+    flex: 1; /* Allow content to grow and fill available space */
+    display: flex; /* Center content if needed */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    background-color: lightblue; /* Match the form background color */
+}
+
+/* Footer styling */
+.footer {
+    display: flex; /* Use flex to center the content */
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    padding: 20px; /* Consistent padding */
+    background: lightblue; /* Match the content background color */
+    box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for the footer */
+    width: 100%; /* Ensure footer spans the entire width */
+}

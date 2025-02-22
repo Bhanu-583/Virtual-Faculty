@@ -1,0 +1,123 @@
+/* Container for the explore section */
+.explore-container {
+  display: flex; /* Use flexbox for alignment */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center align items */
+  justify-content: center; /* Center vertically */
+  padding: 20px;
+  text-align: center;
+  background: lightblue; /* Match the form background */
+  border-radius: 10px; /* Rounded corners */
+  border: 5px solid black; /* Solid black border for a 3D effect */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+  margin: 20px 0; /* Add space above and below the explore container */
+}
+
+/* Inner container for the actual content */
+.laptop-frame {
+  width: 80%;
+  max-width: 800px;
+  margin: 20px auto;
+  border: 15px solid #333;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  background: #fff; /* Background for the laptop screen */
+}
+
+.screen {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: 5px;
+  padding: 20px;
+  text-align: left;
+}
+
+/* Heading styles */
+.main-heading {
+  font-size: 2.5rem; /* Increase size */
+  font-weight: bold;
+  color: #333; /* Use a darker color for contrast */
+  margin-bottom: 20px;
+  text-transform: uppercase; /* Convert text to uppercase */
+  text-decoration: underline; /* Add underline */
+  animation-name: leFlyInTop;
+  animation-duration: 1s; /* Adjust duration as needed */
+  animation-fill-mode: forwards; /* Keeps the final state of the animation */
+}
+
+/* Info section styles */
+.info-section {
+  text-align: center; /* Center align the info text */
+  transition: opacity 0.5s ease, height 0.5s ease; /* Smooth transition for fading and height */
+  opacity: 1; /* Initially fully visible */
+  margin: 20px 0; /* Default margin */
+}
+
+.info-section.hidden {
+  opacity: 0; /* Hidden state */
+  height: 0; /* Collapse height when hidden */
+  overflow: hidden; /* Hide overflow when collapsing */
+  margin: 0; /* Remove margin when hidden */
+}
+
+/* Button styles */
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: var(--main-color); /* Use a variable for consistency */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 4px 4px var(--main-color); /* Box shadow for depth */
+}
+
+button:hover {
+  background-color: #0056b3; /* Slightly darker on hover */
+}
+
+/* Custom button styles */
+.btn-shadow10 {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0; /* Shadow for depth */
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn-shadow10:hover {
+  background-color: #fff;
+}
+
+.btn-shadow10:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .btn-shadow10 {
+      min-width: 120px;
+      padding: 0 25px;
+  }
+}
+
+/* Paragraph styles */
+.explore-container p {
+  font-size: 18px; /* Adjust size as needed */
+  color: #422800; /* Change color if desired */
+  font-weight: bold; /* Make the text bold */
+}
+

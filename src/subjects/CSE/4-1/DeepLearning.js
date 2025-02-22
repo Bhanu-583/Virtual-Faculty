@@ -1,0 +1,188 @@
+import React, { useState } from 'react';
+import syllabusPDF from "../../../assetss/syllabus/cse/411.pdf"; 
+import unit1PDF from "../../../assetss/Notes/cse/41/dl/Unit-1.pdf"; 
+import unit2PDF from "../../../assetss/Notes/cse/41/dl/Unit-2.pdf";
+import unit3PDF from "../../../assetss/Notes/cse/41/dl/Unit-3.pdf";
+import unit4PDF from "../../../assetss/Notes/cse/41/dl/Unit-4.pdf";
+import unit5PDF from "../../../assetss/Notes/cse/41/dl/Unit-5.pdf";
+import './Button.css'; // Custom button styles
+
+const DeepLearning = () => {
+  const [showVideo, setShowVideo] = useState(false);
+  const [showPDF, setShowPDF] = useState(false);
+  const [showNotes, setShowNotes] = useState(false);
+  const [currentPDF, setCurrentPDF] = useState(null);
+  const [selectedUnitPDF, setSelectedUnitPDF] = useState(null);
+
+  const handleSyllabusClick = () => {
+    setShowPDF(true);
+    setShowVideo(false);
+    setShowNotes(false);
+    setCurrentPDF(syllabusPDF);
+  };
+
+  const handleNotesClick = () => {
+    setShowNotes(true);
+    setShowVideo(false);
+    setShowPDF(false);
+  };
+
+  const handleVideoClick = () => {
+    setShowVideo(true);
+    setShowPDF(false);
+    setShowNotes(false);
+  };
+
+  const handleUnitDownload = (pdf) => {
+    setSelectedUnitPDF(pdf);
+  };
+
+  return (
+    <div>
+      <h3>Resources for Deep Learning:</h3>
+      <button onClick={handleVideoClick} className="btn-shadow10">Video Lectures</button>
+      <button onClick={handleSyllabusClick} className="btn-shadow10">Syllabus</button>
+      <button onClick={handleNotesClick} className="btn-shadow10">Notes</button>
+
+      {/* Show the PDF if syllabus is clicked */}
+      {showPDF && (
+        <div className="pdf-container">
+          <h3>{currentPDF === syllabusPDF ? 'Syllabus for Deep Learning:' : 'Unit PDF'}</h3>
+          <iframe
+            src={currentPDF}
+            width="100%"
+            height="600px"
+            title="PDF Viewer"
+          ></iframe>
+          <button onClick={() => setShowPDF(false)} className="btn-shadow10">Close PDF</button>
+        </div>
+      )}
+
+      {/* Show the video if the video button is clicked */}
+      {showVideo && (
+        <div className="video-container">
+          <h3>Deep Learning Video Lectures:</h3>
+          <iframe
+            width="100%"
+            height="400px"
+            src="https://www.youtube.com/embed/videoseries?list=PL0mBkJRroMHQowsPJ3lVId-eHpEg6TOjC"
+            title="YouTube Video Player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+          <button onClick={() => setShowVideo(false)} className="btn-shadow10">Close Video</button>
+        </div>
+      )}
+
+      {/* Show Notes when the Notes button is clicked */}
+      {showNotes && (
+        <div className="notes-container">
+          <h1 style={{ fontSize: '32px', textAlign: 'center', marginBottom: '20px' }}>Deep Learning Notes</h1>
+
+          <div className="unit-frame">
+            <h2 style={{ fontSize: '24px' }}>Unit 1</h2>
+            <p>Fundamentals of Deep Learning: Artificial Intelligence, History of Machine Learning, Probabilistic Modeling, Early Neural Networks, Kernel Methods, Decision Trees, Random forests, Gradient Boosting Machines, Overfitting, and Underfitting.</p>
+            <div className="download-button-container">
+              <DownloadButton onClick={() => handleUnitDownload(unit1PDF)} />
+            </div>
+            {selectedUnitPDF === unit1PDF && (
+              <iframe
+                src={unit1PDF}
+                width="100%"
+                height="400px"
+                title="Unit 1 PDF"
+                style={{ marginTop: '20px' }}
+              ></iframe>
+            )}
+          </div>
+
+          <div className="unit-frame">
+            <h2 style={{ fontSize: '24px' }}>Unit 2</h2>
+            <p>Introducing Deep Learning: Biological and Machine Vision, Artificial Neural Networks, Training Deep Networks, Improving Deep Networks.</p>
+            <div className="download-button-container">
+              <DownloadButton onClick={() => handleUnitDownload(unit2PDF)} />
+            </div>
+            {selectedUnitPDF === unit2PDF && (
+              <iframe
+                src={unit2PDF}
+                width="100%"
+                height="400px"
+                title="Unit 2 PDF"
+                style={{ marginTop: '20px' }}
+              ></iframe>
+            )}
+          </div>
+
+          <div className="unit-frame">
+            <h2 style={{ fontSize: '24px' }}>Unit 3</h2>
+            <p>Neural Networks: Anatomy of Neural Network, Introduction to Keras, TensorFlow, Setting up Deep Learning Workstation, Binary Classification, Multiclass Classification.</p>
+            <div className="download-button-container">
+              <DownloadButton onClick={() => handleUnitDownload(unit3PDF)} />
+            </div>
+            {selectedUnitPDF === unit3PDF && (
+              <iframe
+                src={unit3PDF}
+                width="100%"
+                height="400px"
+                title="Unit 3 PDF"
+                style={{ marginTop: '20px' }}
+              ></iframe>
+            )}
+          </div>
+
+          <div className="unit-frame">
+            <h2 style={{ fontSize: '24px' }}>Unit 4</h2>
+            <p>Convolutional Neural Networks: Neural Network and Representation Learning, Convolutional Layers, Recurrent Neural Networks, PyTorch Tensors.</p>
+            <div className="download-button-container">
+              <DownloadButton onClick={() => handleUnitDownload(unit4PDF)} />
+            </div>
+            {selectedUnitPDF === unit4PDF && (
+              <iframe
+                src={unit4PDF}
+                width="100%"
+                height="400px"
+                title="Unit 4 PDF"
+                style={{ marginTop: '20px' }}
+              ></iframe>
+            )}
+          </div>
+
+          <div className="unit-frame">
+            <h2 style={{ fontSize: '24px' }}>Unit 5</h2>
+            <p>Interactive Applications of Deep Learning: Machine Vision, Natural Language Processing, Generative Adversarial Networks, Deep Reinforcement Learning, Deep Learning Research: Autoencoders, Deep Generative Models.</p>
+            <div className="download-button-container">
+              <DownloadButton onClick={() => handleUnitDownload(unit5PDF)} />
+            </div>
+            {selectedUnitPDF === unit5PDF && (
+              <iframe
+                src={unit5PDF}
+                width="100%"
+                height="400px"
+                title="Unit 5 PDF"
+                style={{ marginTop: '20px' }}
+              ></iframe>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+const DownloadButton = ({ onClick }) => {
+  return (
+    <button className="button" type="button" onClick={onClick}>
+      <span className="button__text">Download</span>
+      <span className="button__icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" id="bdd05811-e15d-428c-bb53-8661459f9307" data-name="Layer 2" className="svg">
+          <path d="M17.5,22.131a1.249,1.249,0,0,1-1.25-1.25V2.187a1.25,1.25,0,0,1,2.5,0V20.881A1.25,1.25,0,0,1,17.5,22.131Z"></path>
+          <path d="M17.5,22.693a3.189,3.189,0,0,1-2.262-.936L8.487,15.006a1.249,1.249,0,0,1,1.767-1.767l6.751,6.751a.7.7,0,0,0,.99,0l6.751-6.751a1.25,1.25,0,0,1,1.768,1.767l-6.752,6.751A3.191,3.191,0,0,1,17.5,22.693Z"></path>
+          <path d="M31.436,34.063H3.564A3.318,3.318,0,0,1,.25,30.749V22.011a1.25,1.25,0,1,1,2.5,0v8.738a.82.82,0,0,0,.814.814H31.436a.82.82,0,0,0,.814-.814V22.011a1.25,1.25,0,0,1,2.5,0v8.738A3.318,3.318,0,0,1,31.436,34.063Z"></path>
+        </svg>
+      </span>
+    </button>
+  );
+};
+
+export default DeepLearning;

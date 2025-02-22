@@ -1,0 +1,74 @@
+/* General styling for header */
+.header {
+  display: flex;
+  align-items: center; /* Vertically align logo and navigation */
+  justify-content: space-between; /* Ensure space between logo and nav */
+  padding: 10px 20px;
+  background-color: beige; /* Set the background color */
+  border: 2px solid black; /* Add a solid black border */
+  border-radius: 10px; /* Rounded corners for the header */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3), 0px 2px 5px rgba(0, 0, 0, 0.2); /* Enhanced shadow for a 3D effect */
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Styling for the logo */
+.header-logo {
+  border: 2px solid black; /* Black border around the logo */
+  border-radius: 10px; /* Rounded corners for the logo frame */
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect for the logo frame */
+  padding: 10px; /* Padding inside the logo frame */
+}
+
+.header-logo img {
+  max-width: 650px; /* Set a max width to ensure the logo is not too large */
+  height: auto;
+  margin: 0; /* Remove any default margins */
+}
+
+/* Navigation styling */
+.navigation ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation li {
+  margin-left: 20px; /* Add some space between the nav items */
+}
+
+.navigation a {
+  text-decoration: none;
+  color: var(--font-color); /* Use a variable for color consistency */
+  font-weight: bold;
+  padding: 10px 15px;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.navigation a:hover {
+  background-color: var(--input-focus); /* Use your defined variable for hover */
+  color: white;
+  border-radius: 5px;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Stack logo and nav on smaller screens */
+    align-items: center;
+  }
+
+  .navigation ul {
+    flex-direction: column; /* Stack the nav items on top of each other */
+  }
+
+  .navigation li {
+    margin: 10px 0; /* Add margin between stacked nav items */
+  }
+}
+
+/* Explore container styling */
+.explore-container {
+  font-family: 'Source Code Pro', monospace; /* Change to your preferred coding font */
+}
